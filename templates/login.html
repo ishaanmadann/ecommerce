@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+	<title>login</title>
+</head>
+<body>
+	<div class="container mt-5">
+		{% for message in messages %}
+	<p class="text-center text-gray">{{ message }}</p>
+	{% endfor %}
+	<!-- Material form login -->
+	<div class="card" style="width: 45%; margin-left: 30%;">
+		<h5 class="card-header bg-info text-white text-center py-4"><strong>LOGIN</strong></h5>
+
+		<!-- card content -->
+		<div class="card-body px-lg-5 pt-0" style="background-color: #ffffff">
+			<!-- form -->
+			<form action="/accounts/login/" method="post" class="text-center" style="color: #757575">
+				{% csrf_token %}
+
+				<!-- username -->
+				<div class="md-form mt-3">
+		      		<input type="text" class="form-control" name="username" placeholder="Username" required>
+		    	</div>
+
+		    	<!-- password -->
+		    	<div class="md-form mt-3">
+		      		<input type="password" class="form-control" name="password"
+		      		placeholder="Password" required>
+		    	</div>
+
+		    	<div class="d-flex justify-content-around mt-3">
+		    		<div>
+		    			<!-- Remember me -->
+		    			<div class="form-check">
+		    				<input type="checkbox" class="form-check-input" id="rememberme">
+		    				<label class="form-check-lable" for="rememberme">Remember me</label>
+		    			</div>
+		    		</div>
+		    		<div>
+		    			<!-- forgot password -->
+		    			<a href="">Forgot password</a>
+		    		</div>
+		    	</div>
+
+		    	<!-- sign in button -->
+				<button type="submit" class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0">Log in</button>
+
+				<!-- Register -->
+				<p>Not a member?
+					<a href="{% url 'accounts:register' %}">Register Here</a>
+				</p>
+
+				<!-- Social login -->
+				<p>or sign in with</p>
+				<a href="" type="button" class="btn-floating btn-fb btn-sm">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="" type="button" class="btn-floating btn-tw btn-sm">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="" type="button" class="btn-floating btn-li btn-sm">
+					<i class="fab fa-linkedin-in"></i>
+				</a>
+				<a href="https://github.com/" type="button" class="btn-floating btn-git btn-sm">
+					<i class="fab fa-github"></i>
+				</a>
+			</form>
+		</div>
+	</div>	
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
